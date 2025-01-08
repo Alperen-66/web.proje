@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Üniversite Projesi</title>
+    <link rel="shortcut icon" href="https://laravel.com/img/logomark.min.svg" type="image/x-icon" alt="sekme logo">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="star-field">
+        <script>
+            const starField = document.querySelector('.star-field');
+
+            function createStars() {
+                const starCount = 200;
+
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    const size = Math.random() * 2.5 + 1.5;
+                    star.classList.add('star');
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite ease-in-out`;
+                    star.style.opacity = Math.random() * 0.7 + 0.3;
+                    starField.appendChild(star);
+                }
+            }
+
+            createStars();
+        </script>
+    </div>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel Logo">
+            <span>Laravel</span>
+        </div>
+        <div class="menu">
+            <a href="#anasayfa" class="active">Anasayfa</a>
+            <a href="#hakkinda">Hakkında</a>
+            <a href="#projeler">Projeler</a>
+            <a href="#laravel-araclari">Araçlar</a>
+            <a href="#ipuclari">İpuçları</a>
+        </div>
+        <div class="auth-buttons">
+            <a onclick="showModal('register-modal')">Kayıt Ol</a>
+            <a onclick="showModal('login-modal')">Oturum Aç</a>
+        </div>
+    </div>
+
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideModal('register-modal')">&times;</span>
+            <h2>Kayıt Ol</h2>
+            <input type="text" placeholder="Ad" />
+            <input type="text" placeholder="Soyad" />
+            <input type="email" placeholder="E-posta" />
+            <input type="password" placeholder="Şifre" />
+            <div class="terms-checkbox">
+                <input type="checkbox" id="terms" />
+                <label for="terms">Kullanım koşullarını kabul ediyorum</label>
+            </div>
+            <button id="register-button">Kayıt Ol</button>
+        </div>
+    </div>
+    
+
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideModal('login-modal')">&times;</span>
+            <h2>Oturum Aç</h2>
+            <input type="email" placeholder="E-posta" />
+            <input type="password" placeholder="Şifre" />
+            <button>Oturum Aç</button>
+        </div>
+    </div>
+        <div class="hero" id="anasayfa">
+            <h1>Laravel ile Geleceğinizi Şekillendirin</h1>
+            <p>Laravel, modern web uygulamaları geliştirmek için güçlü, esnek ve kullanıcı dostu bir PHP framework'üdür. Geliştiricilere kolaylık ve hız sunar.</p>
+            <button class="green-start-btn" onclick="window.open('https://laravel.com/docs/11.x', '_blank')">Başlayın</button>
+        </div>
+    <div class="container">
+    <!-- Hakkında kısmı ve resim -->
+        <div id="hakkinda">
+            <div class="content-left">
+                <h2>Hakkında</h2>
+                <p>Laravel, modern bir PHP framework'ü olup, web uygulama geliştirme sürecini hızlandırmak ve kolaylaştırmak için tasarlanmıştır. MVC (Model-View-Controller) mimarisini benimseyen Laravel, güçlü araçları, kapsamlı dokümantasyonu ve geniş topluluğu ile öne çıkar. Günümüzde birçok geliştirici, Laravel'i projelerinde kullanarak hızlı ve verimli çözümler üretmektedir.</p>
+            </div>
+            <div class="content-right">
+                <img src="https://static.roocket.ir/images/editor/2022/1/25/srtByorquUsJIYJMtzUErTAGRGJBSO9ZwPF9lCt5.png" alt="Laravel Framework">
+            </div>
+        </div>
+    
+    
+        <div id="projeler">
+            <h2>Örnek Projeler</h2>
+            <div class="slider">
+                <button class="slider-arrow left">❮</button>
+                <div class="slider-container">
+                    <div class="slider-item">
+                        <img src="https://beta.finance.si/pics/cache_sp/spletni-nakup-ss-61fbbe31ddc59.jpg" alt="E-Ticaret" width = "300" height="180">
+                        <h3>E-Ticaret Siteleri</h3>
+                        <p> Laravel ile kullanıcı dostu ve güvenli bir e-ticaret platformu oluşturabilirsiniz. Ürünlerinizi listeleyebilir, sepet ve ödeme işlemlerini entegre edebilir, müşteri yönetimi yapabilirsiniz.</p>
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://yandex-images.clstorage.net/yl9G93f39/e4f6c8wxn4e/RqGNEEodc5xIy3erEnlmC87mDV4hk9gIsmJzJSnuBkQsi8_SUBSRH4hf8UA9SuzWqW_Vih5Hpqo_iYnuZkJ6DkMjH9Wf2DKPXM6necW5444d89uM4xFJyvzoqKygJN7OJUJAmhSWgUrcTPbUqxwshy20Dk4L1fH14pLEtfsAM5bH8RdPwto5HU6Lc_DSPmCaQu6NnatcCo8yY2RlK6hYy2yJBpyf2kaCH8dm0ikTdY4rfwoXgBm5vmhRgXV5DTkfj_fXAw4VvhECC_G5Hb0inkXjzx_klI2POm2mZ6BlV8ciwwIaWVaPTlBLZZ4s1LwH6X5BH8dSePxi2Iw2d8cwkMb9Uw5LnHLVjoQ6eBB8JxSJ64zX6R5ITTOn4eiiI98JLQMEk5gaz01bS-9SLN70x6C_AhbH2DSyaF3LvfCKslmMOZyISBu30IlDOztbsm6WDSPCXOiYhgY34qqgqW2TCWEIwZCfmIzIlkfhkmgbtsBosMFcQRD-vWnfSTtwz3jQDzXbQcMQdZsDxvKwEjJqGMosB1sj0YqPc-MgpyRpns8iBo_YmVZBAV_D69Xm2nTDaPhD1ofQ-XqjV0Q3sU55FA8z38tMEzHTAQex8hcyb5vELoId6dFKjTVsZOVgL9wLaY_A2RncC4_QSGMXKBM2Tq-wxFNBWv63bh5NPbpO9lxBvlNABFt9k8kK8zSdOORRySIE1iFTyoJwLK0nqyLXRiXFihtWkggJkwFjEaPbdADkvwqYjtZ2NqHciLA4QPJZSz6UTknTuNuKzfoxFzZhE4sljVIqlAZLc6PrJWvv3IQsiURaVJrEx98MqFIlUv9DK7gI3Unb_7Go2AN--Qm3kgkyUEiO3PAcQcN48Bp6Z95BY8XbZBhNwXpnImiuqRxAKUGCW9uXDgqbgWdW498yyOd6CNdP3fcwKRBKvnPAthhC91YOTl19VIQPOvgdemmSAy1OXqJYCgn_L-WhJs" alt="Blog Platformu" width = "300" height="180">
+                        <h3>Blog Platformu</h3>
+                        <p>Kendi blog platformunuzu kurarak, içeriklerinizi kolayca yönetebilir ve paylaşabilirsiniz. Kullanıcılarınızın yorum yapmasına ve etkileşimde bulunmasına olanak tanıyabilirsiniz.</p>
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://files.oaiusercontent.com/file-3avRuJW9L5G86SWus5YayR?se=2025-01-03T19%3A54%3A08Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscc=max-age%3D604800%2C%20immutable%2C%20private&amp;rscd=attachment%3B%20filename%3D76ffa131-ac83-463c-8a88-19b3953d45e9.webp&amp;sig=JPxvyEeqW6U6/LfSrcHLVrTcywV8AG1edf9Ptb%2Be00c%3D" alt="Görev Yönetim Sistemi" width = "300" height="180">
+                        <h3>Görev Yönetim Sistemi</h3>
+                        <p>Takımınızın projelerini ve görevlerini organize edebileceğiniz bir görev yönetim sistemi geliştirebilirsiniz. Görev atama, takip ve raporlama gibi özelliklerle verimliliği artırabilirsiniz.</p>
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://files.oaiusercontent.com/file-WzXoB2bbqgocNrFLD93TvS?se=2025-01-03T20%3A00%3A37Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscc=max-age%3D604800%2C%20immutable%2C%20private&amp;rscd=attachment%3B%20filename%3D30b84e90-771c-4c5e-98f3-5b15a259bd0c.webp&amp;sig=6sBj5eFyHkDxFTTcgZsFdwom/4y%2B3si10UEpqCGol%2Bw%3D" alt="Fatura Yönetim Sistemi" width="300" height="180">
+                        <h3>Fatura Yönetim Sistemi</h3>
+                        <p>İşletmenizin faturalarını düzenli bir şekilde takip edebileceğiniz bir fatura yönetim sistemi oluşturabilirsiniz. Fatura oluşturma, ödeme takibi ve raporlama gibi işlemleri kolayca yapabilirsiniz.</p>
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://article.murata.com/sites/default/files/styles/large/public/static/ja-jp/images/article/examples-of-diverse-applications-of-3d-urban-models/3d-urban-models-main.jpg?itok=iKAdLeEl" alt="Rezervasyon Sistemi" width="300" height="180">
+                        <h3>Rezervasyon Sistemi</h3>
+                        <p>Otel, restoran veya diğer hizmetler için rezervasyonları yönetebileceğiniz bir sistem geliştirebilirsiniz. Kullanıcılarınızın rezervasyon yapmasını, iptal etmesini ve yönetmesini sağlayabilirsiniz.</p>
+                    </div>
+                    <div class="slider-item">
+                        <img class="MMImage-Origin" src="https://static3.bigstockphoto.com/2/1/2/large1500/212830225.jpg" alt="Picture background" aria-hidden="true" width="300" height="180">
+                        <h3>Kargo ve Taşımacılık Takip Sistemi</h3>
+                        <p>Laravel ile geliştirilen bu sistem, kargo ve taşımacılık süreçlerini yönetmek için tasarlayabilrisiniz. Kullanıcılar gönderi takibi yapabilir, teslimat durumlarını güncelleyebilir ve anlık raporlamalar almasını sağlayabilirsiniz.</p>
+                    </div>
+                    <div class="slider-item">
+                        <img class="MMImage-Origin" src="https://media.zenfs.com/es/efe.es/f9c31941204363f06c9a097e7c507a87" alt="Picture background" aria-hidden="true" width="300" height="180">
+                        <h3>E-Spor Ligi Yönetim Sistemi</h3>
+                        <p>Laravel ile geliştirilen bu sistem, e-spor turnuvalarını ve ligleri yönetmek için tasarlayabilrsiniz.Takım oluşturma, maç sonuçları girme ve canlı sıralama gibi özelliklerle kullanıcıların turnuva süreçlerini yönetmesine olanak tanır.</p>
+                    </div>
+                    <div class="slider-item">
+                        <img class="MMImage-Origin" src="https://www.techuz.com/blog/wp-content/uploads/2019/08/Online-Movie-Ticket-Booking-Banner-1.jpg" alt="Picture background" aria-hidden="true" width="300" height="180">
+                        <h3>Online Sinema Bileti Satış Sistemi</h3>
+                        <p>Laravel ile geliştirilen bu sistem, sinema bileti satışını kolaylaştıran bir platformu yapabilirsiniz. Kullanıcılar, filmleri inceleyebilir, seanslara bilet alabilir ve rezervasyonlarını yönetebilir. Kolay kullanım ve anlık bilgi güncellemeleri sunar.</p>
+                    </div>
+                    <div class="slider-item">
+                        <img class="MMImage-Origin" src="https://etimg.etb2bimg.com/thumb/msid-91574236,imgsize-130648,width-1200,height=765,overlay-ethealth/health-it/how-do-technology-and-healthcare-go-hand-in-hand.jpg" alt="Picture background" aria-hidden="true" width="300" height="180">
+                        <h3>Sağlık Randevu Sistemi:</h3>
+                        <p>Laravel ile geliştirilen bu sistem, hastaneler ve klinikler için randevu yönetimini kolaylaştırır. Kullanıcılar, randevu oluşturabilir, doktor seçimleri yapabilir ve randevularını yönetebilir. Anlık randevu güncellemeleri ve hasta bilgileriyle etkili bir çözüm sunar.</p>
+                    </div>
+                    <div class="slider-item">
+                        <img class="MMImage-Origin" src="https://t3.ftcdn.net/jpg/02/30/62/54/360_F_230625414_jMJOuLPLmUdDb9xp0Y86aB2Kq66y0faa.jpg" alt="Picture background" aria-hidden="true" width="300" height="180">
+                        <h3>Stok ve Envanter Yönetimi</h3>
+                        <p>Laravel ile geliştirilen bu sistem, ürün stoklarını ve envanter süreçlerini kolayca takip etmenizi sağlar. Kullanıcılar, ürün giriş-çıkışlarını yönetebilir, stok durumunu izleyebilir ve raporlar oluşturabilir. Verimli bir stok yönetimi için ideal bir çözümdür.</p>
+                    </div>
+                </div>
+                <button class="slider-arrow right">❯</button>
+            </div>
+        </div>
+
+
+        <div id="laravel-araclari">
+            <h2>Laravel Araçları</h2>
+            <div class="content-section">
+                <div class="arac">
+                    <img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://dmwebsoft.com/wp-content/uploads/2024/04/The-Business-Advantage-of-Using-Laravel-Horizon-DM-WebSoft.webp" width="300" height="180">
+                    <h3>Laravel Horizon</h3>
+                    <p>Laravel Horizon, Laravel queue (kuyruk) işlemlerinin yönetimi ve izlenmesi için geliştirilmiş bir araçtır. Horizon, kuyruk işlerini gerçek zamanlı olarak izleme, istatistik toplama ve kuyruk performansını analiz etme gibi özellikler sunar. Özellikle Redis kuyrukları için optimize edilmiştir ve görsel bir kullanıcı arayüzüne sahiptir.</p>
+                </div>
+
+                <div class="arac">
+                    <img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://www.peanutsquare.com/wp-content/uploads/2023/12/Laravel-Telescope-A-Debugging-Must-Have-1-jpg.webp" width="300" height="180">
+                    <h3>Laravel Telescope</h3>
+                    <p>Laravel Telescope, uygulama geliştirirken hata ayıklama ve izleme işlemlerini kolaylaştıran bir geliştirme aracıdır. HTTP isteklerini, veritabanı sorgularını, hata günlüklerini, kullanıcı işlemlerini, kuyruk işlerini ve diğer birçok işlemi detaylı şekilde kaydeder ve geliştiricilere bir arayüz sunar. Yalnızca geliştirme ortamında kullanılması önerilir.</p>
+                </div>
+
+                <div class="arac">
+                    <img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://mattstauffer.com/assets/images/content/laravel-nova-screenshot--logo.jpg" width="300" height="180">
+                    <h3>Laravel Nova</h3>
+                    <p>Laravel Nova, Laravel projeleri için admin paneli oluşturmayı kolaylaştıran bir yönetim paneli paketidir. Nova, özelleştirilebilir bir kullanıcı arayüzü, kaynak yönetimi, ilişkisel veri desteği, filtreleme ve araç setleri sunar. Kullanıcı dostu olması ve modern bir tasarım sunmasıyla Laravel projelerinde sıkça tercih edilir.</p>
+                </div>
+
+                <div class="arac">
+                    <img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://repository-images.githubusercontent.com/76991633/43a4fe80-025e-11eb-8b88-bf742e4412a7" width="300" height="180">
+                    <h3>Laravel Mix</h3>
+                    <p>Laravel Mix, ön uç varlıklarını (CSS, JS, Sass, Less, vb.) derlemek ve optimize etmek için kullanılan bir araçtır. Webpack tabanlıdır ve basit bir API ile karmaşık yapılandırmalardan kaçınılmasını sağlar. Mix, ön uç varlıkları minify etme, versiyonlama ve modern tarayıcı uyumluluğu sağlama gibi işlemleri kolayca yapmanızı sağlar.</p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="ipuclari" class="content-section">
+            <h2 class="title">İpuçları</h2>
+            <div class="content">
+                <h3>Laravel ile çalışırken faydalı olabilecek bazı ipuçları:</h3>
+                <ol>
+                    <li>Route Düzeni ve Cache Kullanımı
+                        <ul>
+                            <li>Route tanımlamalarını grup ve middleware kullanarak düzenleyebilirsiniz. Bu şekilde kodunuzu daha okunabilir hale getirebilirsiniz. Performans için <i>php artisan route:cache</i> komutuyla route’larınızı önbelleğe almayı düşünebilirsiniz.</li>
+                        </ul>
+                    </li>
+                    <li>Eloquent İlişkilerinden Yararlanın</li>
+                        <ul>
+                            <li>Lazy loading yerine eager loading <i>(with())</i> kullanabilirsiniz. Böyle yaparak gereksiz sorgu yükünü azaltabilir ve veritabanı performansını artırabilirsiniz.</li>
+                        </ul>
+                    <li>Cache Kullanarak Performansı Artırın
+                        <ul>
+                            <li>Sık kullanılan sorguları <i>Cache::remember()</i> ile önbelleğe alabilirsiniz. Bu şekilde, sorguları her seferinde veritabanından çekmek yerine daha hızlı sonuç alabilirsiniz.</li>
+                        </ul>
+                    </li>
+                    <li>Güvenlik Önlemleri Alın
+                        <ul>
+                            <li>CSRF korumasını aktif kullanabilirsiniz. Böyle yaparak formlarınızı saldırılara karşı koruyabilirsiniz. SQL Injection riskini önlemek için de query binding yöntemlerini tercih edebilirsiniz.</li>
+                        </ul>
+                    </li>
+                    <li>Queue Sistemi ile İşlemleri Hızlandırın
+                        <ul>
+                            <li>E-posta gönderimi veya dosya işleme gibi zaman alan işlemleri kuyruklara alabilirsiniz. Böyle yaparak kullanıcı deneyimini iyileştirebilirsiniz.</li>
+                        </ul>
+                    </li>
+                    <li>Performans Optimizasyonu Yapın
+                        <ul>
+                            <li> <i>artisan optimize</i> ve <i>php artisan config:cache</i> komutlarını çalıştırarak uygulamanızın yükleme hızını artırabilirsiniz.</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Hazırlayan: Alperen ÇALIŞIR </p>
+            <p>İletişim: 
+              <a> alperen-clsr@outlook.com </a> | 
+              <a>+90 506 138 6551</a>
+            </p>
+            <div class="social-links">
+              
+              <a href="https://github.com/Alperen-66" target="_blank">GitHub</a>
+              
+            </div>
+          </footer>
+
+    <script>
+        function showModal(id) {
+            document.getElementById(id).style.display = "block";
+        }
+
+        function hideModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+    </script>
+    <script>
+        document.getElementById('register-button').addEventListener('click', function() {
+            const termsCheckbox = document.getElementById('terms');
+            if (!termsCheckbox.checked) {
+                alert('Lütfen kullanım koşullarını kabul edin.');
+                return;
+            }
+            // Kayıt işlemi devam edecek...
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slider = document.querySelector(".slider");
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener("mousedown", (e) => {
+                isDown = true;
+                slider.classList.add("active");
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+        
+            slider.addEventListener("mouseleave", () => {
+                isDown = false;
+                slider.classList.remove("active");
+            });
+        
+            slider.addEventListener("mouseup", () => {
+                isDown = false;
+                slider.classList.remove("active");
+            });
+        
+            slider.addEventListener("mousemove", (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 3; // Scroll hızını ayarlayın
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sliderContainer = document.querySelector('.slider-container');
+            const sliderItems = document.querySelectorAll('.slider-item');
+            const prevButton = document.querySelector('.slider-arrow.left');
+            const nextButton = document.querySelector('.slider-arrow.right');
+
+            let currentIndex = 0;
+
+            function updateSliderPosition() {
+                const offset = -currentIndex * sliderItems[0].offsetWidth;
+                sliderContainer.style.transform = `translateX(${offset}px)`;
+            }
+
+            function nextSlide() {
+                if (currentIndex < sliderItems.length - 3) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Döngüsel kaydırma
+                }
+                updateSliderPosition();
+            }
+
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = sliderItems.length - 1; // Döngüsel kaydırma
+                }
+                updateSliderPosition();
+            }
+
+            // Otomatik kaydırma
+            let autoSlide = setInterval(nextSlide, 3000);
+
+            // Ok düğmeleri
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                clearInterval(autoSlide); // Otomatik kaydırmayı sıfırla
+                autoSlide = setInterval(nextSlide, 3000);
+            });
+
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                clearInterval(autoSlide);
+                autoSlide = setInterval(nextSlide, 3000);
+            });
+        });
+
+        // Slider pozisyonunu güncelle
+        function updateSliderPosition() {
+        sliderContainer.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+    </script>
+
+</body>
+</html>
